@@ -1,0 +1,60 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020, // Allows for the parsing of modern ECMAScript features
+    "sourceType": "module", // Allows for the use of imports
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    }
+  },
+
+  "plugins": ["@typescript-eslint", "react-hooks"],
+  "extends": [
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "rules": {
+    "no-var-requires": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "react/prop-types": "off",
+    "prettier/prettier": [
+      "warn",
+      {
+        "arrowParens": "avoid",
+        "semi": true,
+        "trailingComma": "none",
+        "endOfLine": "auto",
+        "tabWidth": 2,
+        "printWidth": 80,
+        "useTabs": false,
+        "singleQuote": true,
+        "jsxSingleQuote": false
+      }
+    ] // don't show prettier errors as it will be fixed when saved anyway
+  },
+  "settings": {
+    "import/extensions": [".tsx", ".ts", ".js"],
+    "react": {
+      "pragma": "React",
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".tsx", ".ts", ".js"]
+      },
+      "babel-module": {
+        "extensions": [".tsx", ".ts", ".js"],
+        "alias": {
+          "@components": "./src/components",
+          "@containers": "./src/containers"
+        }
+      }
+    }
+  }
+}
